@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>base</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-brand" href="{% url 'index' %}">Lexicon</a></li>
+                    <li><a class="nav-link" href="{% url 'admin:index' %}">Admin</a></li>
+                    <li><a class="nav-link" href="{% url 'appTwo:register' %}">Registration</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a class="navbar-link" href="{% url 'logout'%}">logout </a></li>
+                    {% else %}
+                    <li><a class="navbar-link" href="{% url 'appTwo:register' %}">Registration</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {% block body_block %}
+            {% endblock %}
+        </div>
+        <footer>
+            <p>Author: Yali Zhang<br>
+            <a href="mailto:yali.zhang.2019@gmail.com">yali.zhang.2019@gmail.com</a>
+            </p>
+        </footer>    
+    </body>
+</html>
